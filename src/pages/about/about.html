@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      About
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card *ngFor="let shop of shops">
+    <ion-item no-padding (click)="showShop()">
+      <ion-thumbnail item-left>
+        <ion-img class="defaultStore"></ion-img>
+      </ion-thumbnail>
+      <span style="text-align:justify">
+        <h2>{{shop.name}}</h2>
+        <p>{{shop.address}}</p>
+        <br>
+      </span>
+      <p>Operation Hours: </p>
+      <small> 9.00AM - 10.00PM (MON - FRI) <br> CLOSE (SAT - SUN)</small>
+     
+     
+    </ion-item>
+  </ion-card> 
+</ion-content>

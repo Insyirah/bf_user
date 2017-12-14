@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Confirm Booking</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+
+    <span class="date">
+          <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon>&nbsp;2 Mei 1994
+      </span>
+    <br><br> <b><h2 class="storeName">Wan Kalsom Enterprise</h2></b>
+    <br><br> The item you have choosen are :<br>
+
+    <hr>
+    <br>
+    <ion-grid>
+      <div>
+        <ion-row>
+          <b>Twisties</b>
+          </ion-row>
+        <ion-row>
+          <ion-col>
+                Quantity:<button ion-button small outline class="decInc" (click)="decrement()">-</button>
+                &nbsp;
+                {{counter}}
+                &nbsp;
+                <button ion-button small outline class="decInc" (click)="increment()">+</button>
+          </ion-col>
+          <ion-col>
+            Price:Rm 2.00
+          </ion-col>
+        </ion-row>
+      </div>
+
+      <ion-row>
+        <ion-col>
+          Total
+        </ion-col>
+        <ion-col>
+        </ion-col>
+        <ion-col>
+         Rm 2.00
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+
+    <button ion-button round (click)="goBooking()" color="primary" type="submit"  full >Book Appointment</button>
+    <br>
+  
+  </ion-item>

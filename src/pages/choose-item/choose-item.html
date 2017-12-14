@@ -1,0 +1,70 @@
+<ion-header>
+  
+    <ion-navbar>
+      <ion-title>Provider's Name</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  <ion-content padding>
+    <ion-segment color="primary" [(ngModel)]="selectedSegment" (ionChange)="onSegmentChanged($event)">
+    
+      <ion-segment-button value="first">
+        Items
+      </ion-segment-button>
+  
+      <ion-segment-button value="second">
+        Point
+      </ion-segment-button>
+    </ion-segment>
+  
+    <ion-slides style="height:unset;" #mySlider (ionSlideDidChange)="onSlideChanged($event)">
+      <ion-slide>
+        <br>
+        <span style="font-size:90%">Select the item</span>
+        <br>
+        <span style="font-size:80%">You can choose multiple item</span>
+        <br>
+        <br>
+        <hr>
+        <!-- <span style="font-size:80%"><b>Hair</b></span> -->
+          <ion-item *ngFor="let item of items;let i = index" style="white-space: normal;" text-wrap>
+            <ion-label>
+            <b> {{item.name}} </b><br>
+            <a><b>{{item.price}}</b></a>
+            <ion-row>
+                <ion-col>
+                  Max:10
+                </ion-col>
+                <ion-col>
+                  Valid until : 10 Dec 2018
+                </ion-col>
+              </ion-row>
+            </ion-label>
+            <ion-checkbox [(ngModel)]="checkedItems[i]" (ionChange)="chooseItem(checkedItems[i])" color="primary"></ion-checkbox>
+          </ion-item>
+        <button (click)="proceed()" [disabled]='disabledProceed' ion-button color="primary" type="submit"  round full margin-top>Make Appointment</button>
+      </ion-slide>
+  
+      <ion-slide>
+        <br>
+        <span style="font-size:90%">Choose point</span>
+        <br>
+        <span style="font-size:80%">You can choose multiple point</span>
+        <br>
+        <br>
+        <hr>
+        <!-- <span style="font-size:80%"><b>Hair</b></span> -->
+          <ion-item *ngFor="let item of items;let i = index" style="white-space: normal;" text-wrap>
+            <ion-label>
+            <b> {{item.name1}} </b><br>
+            
+            </ion-label>
+            <ion-checkbox [(ngModel)]="checkedItems[i]" (ionChange)="chooseItem(checkedItems[i],item.name)" color="primary"></ion-checkbox>
+          </ion-item>
+        <button (click)="proceed()" [disabled]='disabledProceed' ion-button color="primary" type="submit"  round full margin-top>Proceed</button>
+      </ion-slide>
+  
+    </ion-slides>
+  
+  </ion-content>

@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  
+    <div id="item-container">
+        <div class="s" (click)="chooseFoodShop()">
+            <img src="assets/imgs/food.png">
+        </div>
+        <div class="s">
+            <img src="assets/imgs/cloth.png">
+        </div>
+        <div class="s">
+            <img src="assets/imgs/car.png">
+        </div>
+      </div>
+
+    <ion-item>
+          <ion-input type="text" placeholder="My Qr Data" [(ngModel)]="qrData"></ion-input>
+    </ion-item>
+    <button ion-button full icon-left (click)="createCode()"><ion-icon name="barcode"></ion-icon>Create Code</button>
+    <button ion-button full icon-left (click)="scan()"><ion-icon name="qr-scanner"></ion-icon>Scan Code</button>
+    <br>
+    <ion-card *ngIf="createdCode">
+        <ngx-qrcode [qrc-value]="createdCode"></ngx-qrcode>
+        <ion-card-content>
+            <p>Value:{{createdCode}}</p>
+        </ion-card-content>
+    </ion-card>
+
+    <ion-card *ngIf="scannedCode">
+            <ion-card-content>
+                Result From Scan:{{scanSub}}
+            </ion-card-content>
+        </ion-card>
+    
+</ion-content>
